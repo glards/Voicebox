@@ -5,7 +5,9 @@ gem 'rails', '3.1.3'
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+#gem 'sqlite3'
+gem 'mongoid', "~> 2.3"
+gem 'bson_ext', "~> 1.4"
 
 
 # Gems used only for assets and not required
@@ -42,4 +44,5 @@ group :test do
   gem 'factory_girl_rails'
   # Pretty printed test output
   gem 'turn', '0.8.2', :require => false
+  gem 'mongoid-rspec', :require => false
 end
