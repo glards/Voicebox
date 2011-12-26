@@ -8,7 +8,7 @@ gem 'rails', '3.1.3'
 #gem 'sqlite3'
 gem 'mongoid', "~> 2.3"
 gem 'bson_ext', "~> 1.4"
-
+gem 'bcrypt-ruby'
 
 # Gems used only for assets and not required
 # in production environments by default.
