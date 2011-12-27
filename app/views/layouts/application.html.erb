@@ -1,14 +1,47 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Voicebox</title>
+  <title><%= title %></title>
+  <%= stylesheet_link_tag "bootstrap.min.css" %>
+  <style>
+    body {
+      padding-top: 60px;
+    }
+  </style>
+
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+  <!-- Topbar -->
+  <div class="topbar">
+    <div class="fill">
+      <div class="container">
+        <a class="brand" href="#">VoiceBox</a>
+        <ul class="nav">
+          <%= nav_link("Home", root_path) %>
+          <%= nav_link("About", about_path) %>
+          <%= nav_link("Contact", contact_path) %>
+          <%= nav_link("Help", help_path) %>
+        </ul>
+        <div class="pull-right">
+          <ul class="nav">
+            <%= nav_link("Sign up", "#") %>
+          </ul>
+          <form action="">
+            <input class="input-small" type="text" placeholder="Username">
+            <input class="input-small" type="password" placeholder="Password">
+            <button class="btn" type="submit">Sign in</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 
+  <div class="container">
+<%= yield %>
+  </div>
 </body>
 </html>
