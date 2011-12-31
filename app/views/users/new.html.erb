@@ -1,0 +1,24 @@
+<h1>Sign up</h1>
+
+<%= form_for(@user, html: { class: "form-stacked" }) do |f| %>
+  <%= render partial: 'shared/error_messages', locals: { object: @user } %>
+  <%= field_for(@user, :email) do %>
+    <%= f.label :email %><br/>
+    <%= f.text_field :email %>
+  <% end %>
+  <%= field_for(@user, :phone) do %>
+    <%= f.label :phone %><br/>
+    <%= f.text_field :phone %>
+  <% end %>
+  <%= field_for(@user, :password) do %>
+    <%= f.label :password %><br/>
+    <%= f.password_field :password %>
+  <% end %>
+  <%= field_for(@user, :password_confirmation) do %>
+    <%= f.label :password_confirmation %><br/>
+    <%= f.password_field :password_confirmation %>
+  <% end %>
+  <div class="actions">
+    <%= f.submit "Sing up", class: %w(btn primary) %>
+  </div>
+<% end %>

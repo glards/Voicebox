@@ -1,0 +1,12 @@
+<% if object.errors.any? %>
+  <div data-alert="alert" class="alert-message block-message error">
+    <a class="close" href="#">x</a>
+    <p><strong><%= pluralize(object.errors.count, "error") %> encountered.</strong>
+    There were problems with the following fields:</p>
+    <ul>
+      <% object.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

@@ -28,7 +28,7 @@
         </ul>
         <div class="pull-right">
           <ul class="nav">
-            <%= nav_link("Sign up", "#") %>
+            <%= nav_link("Sign up", signup_path) %>
           </ul>
           <form action="">
             <input class="input-small" type="text" placeholder="Username">
@@ -41,6 +41,12 @@
   </div>
 
   <div class="container">
+    <% flash.each do |key, value| %>
+      <div class="alert-message <%= key %>">
+        <a href="#" class="close">x</a>
+        <p><%= value %></p>
+      </div>
+    <% end %>
 <%= yield %>
   </div>
 </body>

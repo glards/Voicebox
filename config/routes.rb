@@ -1,8 +1,11 @@
 Voicebox::Application.routes.draw do
+  resources :users, only: [:new, :create]
 
-  match '/about' => 'pages#about'
-  match '/contact' => 'pages#contact'
-  match '/help' => 'pages#help'
+  match '/signup', to: 'users#new'
+
+  match '/about', to: 'pages#about'
+  match '/contact', to: 'pages#contact'
+  match '/help', to: 'pages#help'
   
   root to: 'pages#home'
 
