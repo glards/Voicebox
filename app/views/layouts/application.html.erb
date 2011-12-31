@@ -1,53 +1,81 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title><%= title %></title>
-  <%= stylesheet_link_tag "bootstrap.min.css" %>
-  <style>
-    body {
-      padding-top: 60px;
-    }
-  </style>
+  <head>
+    <title><%= title %></title>
+    <%= stylesheet_link_tag "bootstrap.min.css" %>
+    <style>
+      html, body {
+        background-color: #eee;
+      }
 
-  <%= stylesheet_link_tag    "application" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+      body {
+        padding-top: 60px;
+      }
 
-  <!-- Topbar -->
-  <div class="topbar">
-    <div class="fill">
-      <div class="container">
-        <a class="brand" href="#">VoiceBox</a>
-        <ul class="nav">
-          <%= nav_link("Home", root_path) %>
-          <%= nav_link("About", about_path) %>
-          <%= nav_link("Contact", contact_path) %>
-          <%= nav_link("Help", help_path) %>
-        </ul>
-        <div class="pull-right">
+      .container > footer p {
+        text-align: center;
+      }
+
+      .container {
+        width: 820px;
+      }
+
+      .content {
+        background-color: #fff;
+        padding: 20px;
+        margin: 0 -20px;
+        -webkit-border-radius: 0 0 6px 6px;
+        -moz-border-radius: 0 0 6px 6px;
+        border-radius: 0 0 6px 6px;
+        box-shadow: 0 1px 2px rgba(0,0,0,.15);
+      }
+    </style>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+
+    <!-- Topbar -->
+    <div class="topbar">
+      <div class="fill">
+        <div class="container">
+          <a class="brand" href="#">VoiceBox</a>
           <ul class="nav">
-            <%= nav_link("Sign up", signup_path) %>
+            <%= nav_link("Home", root_path) %>
+            <%= nav_link("About", about_path) %>
+            <%= nav_link("Contact", contact_path) %>
+            <%= nav_link("Help", help_path) %>
           </ul>
-          <form action="">
-            <input class="input-small" type="text" placeholder="Username">
-            <input class="input-small" type="password" placeholder="Password">
-            <button class="btn" type="submit">Sign in</button>
-          </form>
+          <div class="pull-right">
+            <% if signed_in? %>
+              <%= render 'layouts/sign_in_bar' %>
+            <% else %>
+              <%= render 'layouts/sign_up_bar' %>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <div class="container">
-    <% flash.each do |key, value| %>
-      <div class="alert-message <%= key %>">
-        <a href="#" class="close">x</a>
-        <p><%= value %></p>
+    <div class="container">
+      <div class="content">
+        <% flash.each do |key, value| %>
+          <div class="alert-message <%= key %>">
+            <a href="#" class="close">x</a>
+            <p><%= value %></p>
+          </div>
+        <% end %>
+        <%= yield %>
       </div>
-    <% end %>
-<%= yield %>
-  </div>
-</body>
+
+      <footer>
+      <p>&copy; TWA Corp 2011-2012</p>
+      <%= debug(params) if Rails.env.development? %>
+      <%= debug(session) if Rails.env.development? %>
+      </footer>
+    </div>
+
+  </body>
 </html>

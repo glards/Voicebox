@@ -33,4 +33,8 @@ class User
     length: { minimum: 10 },
     uniqueness: { case_sensitive: false },
     format: { with: phone_regex }
+
+  def salt
+    BCrypt::Password.new(@password_digest).salt
+  end
 end

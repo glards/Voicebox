@@ -54,12 +54,15 @@ describe UsersController do
        response.should redirect_to root_path
      end
 
-     it "should have a welcome message"do
+     it "should have a welcome message" do
        post :create, user: @attr
        flash.key?(:success).should be_true
      end
 
-     it "should sign the user in"
+     it "should sign the user in" do
+       post :create, user: @attr
+       controller.should be_signed_in
+     end
    end
  end
 end

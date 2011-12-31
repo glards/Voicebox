@@ -1,0 +1,9 @@
+
+<ul class="nav">
+  <%= nav_link("Sign up", signup_path) %>
+</ul>
+<%= form_for :session, url: login_path do |f| %>
+  <%= f.text_field :email, placeholder: "Username", class: "input-small" %>
+  <%= f.password_field :password, placeholder: "Password", class: "input-small" %>
+  <button type="submit" class="btn primary">Sign in</button>
+<% end %>
