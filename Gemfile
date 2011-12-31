@@ -41,7 +41,7 @@ group :test do
   gem 'rspec-rails'
   gem 'autotest'
   gem 'webrat'
-  gem 'factory_girl_rails'
+  gem 'factory_girl_rails', "~> 1.2"
   # Pretty printed test output
   gem 'turn', '0.8.2', :require => false
   gem 'mongoid-rspec', :require => false

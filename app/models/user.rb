@@ -23,6 +23,11 @@ class User
     length: { minimum: 6 },
     on: :create
 
+  validates :password_confirmation,
+    presence: true,
+    length: { minimum: 6 },
+    on: :create
+
   validates :phone,
     presence: true,
     length: { minimum: 10 },
