@@ -1,6 +1,10 @@
 Voicebox::Application.routes.draw do
   resources :users, only: [:new, :create]
 
+  match '/logout', to: 'sessions#destroy'
+  match '/login', to: 'sessions#create'
+  match '/signin', to: 'sessions#new'
+
   match '/signup', to: 'users#new'
 
   match '/about', to: 'pages#about'
