@@ -8,7 +8,12 @@ class User
   field :password_digest, :type => String
   field :phone, :type => String
 
+  has_many :messages
+
   has_secure_password
+
+  index :phone, unique: true
+  index :email, unique: true
 
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   phone_regex = /\A\+\d{9,12}\z/

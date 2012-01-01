@@ -1,0 +1,6 @@
+<h1>Your messages</h1>
+<% if @messages.exists? %>
+  <%= render partial: "message", collection: @messages %>
+<% else %>
+  <p>You have no messages</p>
+<% end %>
