@@ -1,4 +1,6 @@
 class PagesController < ApplicationController
+  before_filter :root_selection, only: :home
+
   def home
     @title = "Home"
   end

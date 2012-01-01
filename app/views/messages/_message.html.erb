@@ -1,0 +1,5 @@
+<div class="message">
+  <h2><%= message_counter %>. Message from <%= message.from %> on <%= message.received %></h2>
+  <p>Message : <audio preload="none" controls="controls" src="<%= message.url %>"></p>
+  <p><%= link_to "Delete", message_path(message.id), method: :delete %></p>
+</div>
