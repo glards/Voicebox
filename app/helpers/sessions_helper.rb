@@ -24,6 +24,10 @@ module SessionsHelper
   private
 
   def user_from_session
-    User.find(session[:user_id]) if session[:user_id]
+    begin
+      User.find(session[:user_id]) if session[:user_id]
+    rescue
+      nil
+    end
   end
 end
