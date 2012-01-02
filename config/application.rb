@@ -51,3 +51,5 @@ module Voicebox
     config.assets.version = '1.0'
   end
 end
+
+  TWILIO_ACCOUNT_GUID = "AC3d4b9d5ac1f3449fbdf5afb65700a8fc"

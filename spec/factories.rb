@@ -8,7 +8,6 @@ FactoryGirl.define do
 
   factory :message do
     callsid "12345"
-    from "+411230001"
     url "http://localhost/1"
     received DateTime.now
 
@@ -17,7 +16,6 @@ FactoryGirl.define do
 
   factory :second_message, class: :message do
     callsid "12346"
-    from "+411230002"
     url "http://localhost/2"
     received DateTime.now
 

@@ -16,7 +16,7 @@ class User
   index :email, unique: true
 
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  phone_regex = /\A\+\d{9,12}\z/
+  phone_regex = /\A(\+\d{9,12})|(client:[a-zA-Z]+)\z/
 
   validates :email,
     presence: true,

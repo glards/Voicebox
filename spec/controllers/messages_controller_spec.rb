@@ -42,8 +42,8 @@ describe MessagesController do
 
         it "should display the messages" do
           get :index
-          response.should have_selector('h2', content: @message.from)
-          response.should have_selector('h2', content: @message2.from)
+          response.should have_selector('h2', content: '1.')
+          response.should have_selector('h2', content: '2.') 
         end
 
         it "should allow the messages to be deleted" do
