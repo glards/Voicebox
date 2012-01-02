@@ -1,4 +1,8 @@
 Voicebox::Application.routes.draw do
+
+  match '/recording/reply', to:'recording#reply'
+  match '/recording/callback', to: 'recording#callback'
+
   resources :users, only: [:new, :create]
   resources :messages, only: [:index, :destroy]
 

@@ -82,6 +82,11 @@ describe User do
       user.should_not be_valid
     end
 
+    it "should allow twilio client number" do
+      user = User.new(@attr.merge(phone: "client:Glards"))
+      user.should be_valid
+    end
+
     it "should reject an invalid phone number" do
       phones = ["asdbgasgg", "12345678", "+41 123 12 34"]
       phones.each do |phone|
